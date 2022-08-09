@@ -51,9 +51,7 @@ const displayBoard = (() => {
     };
 
 })();
-// ====================
 // ==========================================
-
 // Factory function for players
 const Players = (id, mark) => {
     id = id;
@@ -67,3 +65,15 @@ const Players = (id, mark) => {
         addMark,
     }
 };
+// ===================================
+// Module for Game flow
+const Game = (() => {
+
+    // Create player
+    const player1 = Players(1, "X");
+    // 
+    displayBoard.init(player1);
+    
+
+})();
+

@@ -51,3 +51,19 @@ const displayBoard = (() => {
     };
 
 })();
+// ====================
+// ==========================================
+
+// Factory function for players
+const Players = (id, mark) => {
+    id = id;
+    mark = mark;
+
+    const addMark = () => {
+        console.log("It works")
+    };
+ 
+    return {
+        addMark,
+    }
+};

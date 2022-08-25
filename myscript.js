@@ -6,8 +6,8 @@ const Game = (() => {
         
         return {
             gameBoard: ["?", "?", "?",
-                    "?", "?", "?",
-                    "?", "?", "?"],  
+                        "?", "?", "?",
+                        "?", "?", "?"],  
         }
 
     })();
@@ -38,6 +38,15 @@ const Game = (() => {
 
     const gridContainer = document.getElementById('grid-container');
     const _GRID_SIZE = 9;
+    // Create pattern array
+    const winners = [[0, 1, 2],
+                    [3, 4, 5],
+                    [6, 7, 8],
+                    [0, 3, 6],
+                    [1, 4, 7],
+                    [2, 5, 8],
+                    [0, 4, 8],
+                    [2, 4, 6]];
 
     //  Add mark to a particular spot in the gameboard array
     const checkPlayer = (e) => {
@@ -67,13 +76,46 @@ const Game = (() => {
         if (GameBoard.gameBoard[e.target.dataset.cell] === "?") {
             GameBoard.gameBoard[e.target.dataset.cell] = currentPlayer.mark;
         }
+        // console.table(GameBoard.gameBoard);
         return;
     }
 
     const checkWinner = () => {
-        // winner patterns
-        
-    }
+        let tempFirst = "";
+        let counter = 0;
+        let eachCellCounter = 0;
+    
+        winners.forEach(eachArray => {
+            tempFirst = GameBoard.gameBoard[eachArray[0]];
+            // console.log(`${eachArray[0]}: ${caseArr[eachArray[0]]}`);
+            for (eachItem of eachArray) {
+                if (GameBoard.gameBoard[eachItem] == "?") {
+                    tempFirst = "";
+                    counter = 0;
+                    break;
+                }
+                if (tempFirst !== GameBoard.gameBoard[eachArray[counter]]) {
+                    counter = 0;
+                    break;
+                }
+                if (counter == 2) {
+                    return console.log(`The winner is ${GameBoard.gameBoard[eachItem]}`);
+                }
+                counter++;
+            }
+        });
+        // Check tie
+        GameBoard.gameBoard.forEach(eachCell => {
+
+            if (eachCell == "X" || eachCell == "0") {
+                eachCellCounter++;
+            }
+            if (eachCellCounter == 9) {
+                return console.log("Tie. There is not winner.");
+            }
+        })
+
+    };
 
 
     const _renderBoard = (gridContainer, checkPlayer) => {
@@ -86,19 +128,7 @@ const Game = (() => {
         }
     }
 
-    
-/*     const _populateBoard = (gridContainer) => {
-        const arrFromCollection = Array.from(gridContainer.children);
-        arrFromCollection.forEach((div, indexOfDiv) => {
-            GameBoard.gameBoard.forEach((item, indexOfItem) => {
-                if (item !== "?") {
-                    div.textContent = item;
-                }
-            })
-        });
-    };
- */
-    _renderBoard(gridContainer, checkPlayer);
+        _renderBoard(gridContainer, checkPlayer);
 
 
     })();

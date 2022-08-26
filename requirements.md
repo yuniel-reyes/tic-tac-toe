@@ -91,6 +91,13 @@ g) a function that checks winner or tie. That function can be called inside
               - It increase the counter if none of the break cases rises.
             - Iterate over the array created with the user input: no winners. Tie.
 
+f) Add the functionalities to restart the game:
+  - clear every cell of the board
+  - clear the array that stores the user input
+  - Reset the game to the first player
+
+
+
 `III. Players`
 3. Create a factory function that return a player (see *hint)
 - Create two players and a current player
@@ -139,3 +146,4 @@ When player1 play, change current player to player2
 ## Non functional Requirements
 1. Set up the HTML to display the gameboard
 2. Set up the CSS to display the gameboard
+3. Add a button to restart the game

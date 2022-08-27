@@ -31,6 +31,7 @@ content of the array
 f) add an event listener to each gameboard grid call `checkPlayer()` (see `c`)
 g) a function that checks winner or tie. That function can be called inside
 `updateArray()`
+  - if winner remove event listener from each div
   - print each item in array 
   - Patterns: 
     [0]  [1]  [2]
@@ -146,4 +147,4 @@ When player1 play, change current player to player2
 ## Non functional Requirements
 1. Set up the HTML to display the gameboard
 2. Set up the CSS to display the gameboard
-3. Add a button to restart the game
+3. Remove the borders of the cells and make them look

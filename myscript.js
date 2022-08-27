@@ -89,6 +89,13 @@ const Game = (() => {
             return theWinner.textContent = `Player ${thisWinner} has won!`;
         }
 
+        const removeListeners = () => {
+            let eachDiv = gridContainer.children;
+            for (let eachListener = 0; eachListener < eachDiv.length; eachListener++){
+                eachDiv[eachListener].removeEventListener('click', checkPlayer);
+            }
+        }
+
         const checkWinner = () => {
             let tempFirst = "";
             let counter = 0;
@@ -109,6 +116,7 @@ const Game = (() => {
                     }
                     if (counter == 2) {
                         // console.log(`The winner is ${GameBoard.gameBoard[eachItem]}`);
+                        removeListeners();
                         return updateWinner(GameBoard.gameBoard[eachItem]);
                     }
                     counter++;

@@ -165,17 +165,7 @@ const Game = (() => {
 
         _renderBoard(gridContainer, checkPlayer);
 
-        return {
-            resetButton,
-            // theWinner,
-        }
-
     })();
-
-    return {
-        displayBoard,
-        GameBoard,
-    }
-    
+        
 })();
 

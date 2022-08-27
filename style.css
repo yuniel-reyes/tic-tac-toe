@@ -27,7 +27,7 @@ header {
     grid-template-rows: repeat(3, 150px);
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     
 }
 
@@ -35,11 +35,15 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid;
     width: 150px;
     height: 150px;
     border-radius: 15px;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    background-color: aliceblue;
+}
+
+.child:hover {
+    background-color: antiquewhite;
 }
 
 .restart-btn {
@@ -61,4 +65,10 @@ header {
 footer {
     display: flex;
     justify-content: center;
+}
+
+.f-container a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
 }

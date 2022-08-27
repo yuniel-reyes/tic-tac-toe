@@ -81,7 +81,6 @@ const Game = (() => {
             if (GameBoard.gameBoard[e.target.dataset.cell] === "?") {
                 GameBoard.gameBoard[e.target.dataset.cell] = currentPlayer.mark;
             }
-            // console.table(GameBoard.gameBoard);
             return;
         };
 
@@ -103,7 +102,6 @@ const Game = (() => {
 
             winners.forEach(eachArray => {
                 tempFirst = GameBoard.gameBoard[eachArray[0]];
-                // console.log(`${eachArray[0]}: ${caseArr[eachArray[0]]}`);
                 for (eachItem of eachArray) {
                     if (GameBoard.gameBoard[eachItem] == "?") {
                         tempFirst = "";
@@ -115,7 +113,6 @@ const Game = (() => {
                         break;
                     }
                     if (counter == 2) {
-                        // console.log(`The winner is ${GameBoard.gameBoard[eachItem]}`);
                         removeListeners();
                         return updateWinner(GameBoard.gameBoard[eachItem]);
                     }
@@ -166,6 +163,6 @@ const Game = (() => {
         _renderBoard(gridContainer, checkPlayer);
 
     })();
-        
+
 })();
 
